@@ -20,6 +20,7 @@ function gamble(msg, args){
       if(bruh <= users[msg.author.tag]['money']){
         var jackpot = Math.floor(Math.random() * 101);
         var potjack = (bruh * 1000);
+        var notjackpot = Math.floor(Math.random() * 10001 )
         if(jackpot >= 99){
           users[msg.author.tag]['money'] = users[msg.author.tag]['money'] + potjack;
           msg.reply("Youve won the JACKPOT!!!!! The money you bet has been multiplied by 1000!!!!")
@@ -27,6 +28,14 @@ function gamble(msg, args){
           msg.reply(`Your money is NOW at $${mooola}`);
           updateusers()
         }
+        else if(notjackpot <= 1){
+          users[msg.author.tag]['money'] = users[msg.author.tag]['money'] / 2
+          updateusers()
+          var mooola = users[msg.author.tag]['money']
+          msg.reply(`Your money is NOW at $${mooola}`);
+          msg.reply("Youre knocked out after drinking so much. The mafia find you in the casino and drag you into a dark alley. They search you and find all your money. They feel bad and only take half cause their nice people. You should thank them later")
+        }
+        
         else{
           users[msg.author.tag]['money'] = users[msg.author.tag]['money'] - bruh
           var dud = (bruh * 2) + 1;
@@ -64,6 +73,7 @@ function gamble(msg, args){
       else{
         msg.reply('You dont have enough money!!!! Please choose a valid amount.');
       }
+      
     }
       
     
