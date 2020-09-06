@@ -4,7 +4,7 @@
   "description": "Discord bot for SitePoint",
   "main": "index.js",
   "engines": {
-    "node": "8.x",
+    "node": "14.x",
     "npm": "*"
 },
   "scripts": {
