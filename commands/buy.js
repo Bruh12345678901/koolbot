@@ -2,15 +2,7 @@ var index = require('../users');
 
 var users = index.users;
 var updateusers = index.updateusers;
-var items = {
-  tshirt:25,
-  applebutter:500,
-  mia:0,
-  butterapple:500,
-  salmon:50,
-  jonesy:1000000,
-  Kevin: 1
-}
+var items = index.items;
 module.exports = {
 	name: 'buy',
 	description: 'Buy an item from the shop',
@@ -31,11 +23,15 @@ function buy(args, msg){
     else{
       if (args[0] in items){
         console.log(items[args[0]])
-        if(items[args[0]] <= users[msg.author.tag]['money']){
-          users[msg.author.tag]['items'].push(args[0])
+        console.log(items[args[0]]["cost"])
+        if (args[0] in users[msg.author.tag]['items']){
+          msg.reply("you already have this item!!!")
+        }
+        else if(items[args[0]]["cost"] <= users[msg.author.tag]['money']){
+          users[msg.author.tag]['items'][args[0]] = items[args[0]]
           console.log(args[0])
           console.log(users[msg.author.tag]['items'])
-          users[msg.author.tag]['money'] = users[msg.author.tag]['money'] - items[args[0]]
+          users[msg.author.tag]['money'] = users[msg.author.tag]['money'] - items[args[0]]["cost"]
           msg.reply(`You successfully bought ${args[0]}!`)
           updateusers()
         }

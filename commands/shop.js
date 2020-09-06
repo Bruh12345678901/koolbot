@@ -13,7 +13,7 @@ module.exports = {
 function shop(msg){
     var txt = ''
     for (x in items) {
-      txt += x + ": " + index.items[x] + "\n"
+      txt += x + ": " + index.items[x]["cost"] + "\n"
     }
     msg.reply(`The items in the shop today are :${txt}`)
   }

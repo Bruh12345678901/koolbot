@@ -17,9 +17,11 @@ function item(msg){
 	else if(users[msg.author.tag]['items'].length < 1){
 		msg.reply(`lol u have no items`)
 	}
-	else{
+	else
+	//make this work with the dictionary plz
+	{
 		var itms = users[msg.author.tag]['items']
 		msg.reply(`The items in your inventory are ${itms}`)
-	}
+	}  
 
   }
