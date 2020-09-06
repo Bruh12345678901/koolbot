@@ -9,6 +9,13 @@ module.exports = {
 	},
 };
 function wallet(msg){
-    var moola = users[msg.author.tag]['money']
-    msg.reply(`Your money is at $${moola}`)
+	if (!(msg.author.tag in users)){
+		console.log(users)
+		console.log('dude')
+		msg.reply('You havent joined yet, plz do !join to join')
+	  }
+	else{
+		var moola = users[msg.author.tag]['money']
+		msg.reply(`Your money is at $${moola}`)
+	}
   }

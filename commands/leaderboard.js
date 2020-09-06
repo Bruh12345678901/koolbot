@@ -20,6 +20,12 @@ module.exports = {
 };
 
 function leaderboard(msg){
+  if (!(msg.author.tag in users)){
+		console.log(users)
+		console.log('dude')
+		msg.reply('You havent joined yet, plz do !join to join')
+    }
+  else{
     console.log(Object.values(users))
     console.log(Object.keys(users))
     var keys = Object.keys(users)
@@ -31,4 +37,5 @@ function leaderboard(msg){
     }
     msg.channel.send(`${boardleader}`)
     console.log(boardleader)
+  }
 }

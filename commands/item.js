@@ -9,6 +9,17 @@ module.exports = {
 	},
 };
 function item(msg){
-    var itms = users[msg.author.tag]['items']
-    msg.reply(`The items in your inventory are ${itms}`)
+	if (!(msg.author.tag in users)){
+		console.log(users)
+		console.log('dude')
+		msg.reply('You havent joined yet, plz do !join to join')
+	  }
+	else if(users[msg.author.tag]['items'].length < 1){
+		msg.reply(`lol u have no items`)
+	}
+	else{
+		var itms = users[msg.author.tag]['items']
+		msg.reply(`The items in your inventory are ${itms}`)
+	}
+
   }

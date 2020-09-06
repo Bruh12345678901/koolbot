@@ -20,7 +20,12 @@ module.exports = {
 };
 
 function buy(args, msg){
-    if (!args.length) { // argument == 0
+    if (!(msg.author.tag in users)){
+		  console.log(users)
+		  console.log('dude')
+		  msg.reply('You havent joined yet, plz do !join to join')
+	  }
+    else if (!args.length) { // argument == 0
       return msg.channel.send(`You didn't choose an item to buy, ${message.author}!`);
     }
     else{

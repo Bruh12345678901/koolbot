@@ -11,7 +11,15 @@ module.exports = {
 };
 function gamble(msg, args){
     var bruh = parseInt(args[0]);
-    if (!args.length) { // argument == 0
+    if (!(msg.author.tag in users)){
+      console.log(users)
+      console.log('dude')
+      msg.reply('You havent joined yet, plz do !join to join')
+      }
+    else if(bruh <= 0){
+        msg.reply('Please choose an amount above 0');
+    }
+    else if (!args.length) { // argument == 0
       return msg.channel.send(`You didn't select an amount to gamble, ${msg.author}!`);
     }
     else if(args[0] >= 1){
@@ -70,6 +78,7 @@ function gamble(msg, args){
         // }
   
       }
+
       else{
         msg.reply('You dont have enough money!!!! Please choose a valid amount.');
       }

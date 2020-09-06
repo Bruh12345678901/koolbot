@@ -1,7 +1,7 @@
 var index = require('../users');
 
 var users = index.users;
-
+var updateusers = index.updateusers;
 
 module.exports = {
 	name: 'join',

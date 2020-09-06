@@ -25,7 +25,8 @@ var items = {
   butterapple:500,
   salmon:50,
   jonesy:1000000,
-  Kevin: 1
+  Kevin: 1,
+  THE_REAL_APPLEBUTTER : 10000000000000000
 }
 
 var prefix = '!'
